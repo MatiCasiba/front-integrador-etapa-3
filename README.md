@@ -100,4 +100,36 @@ const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
 export default DragDrop
 ```
 
+### Estilizando el nuevo componente
+Se enucentra en las carpetas /components/como-alta/ el archivo scss para la estilización del DragDrop.jsx, este archivo se llama DragDrop.scss:
+
+```sh
+.drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 20px;
+    width: 300px;
+    margin: 25px 0;
+    padding: 20px;
+    & p {
+        margin-bottom: 30px;
+    }
+    &-button {
+        display: inline-block;
+        padding: 10px;
+        background: #ccc;
+        cursor: pointer;
+        border-radius: 5px;
+        border-radius: 1px solid #ccc;
+    }
+    & #lbl-foto {
+        display: none;
+    }
+    &-image img {
+        width: 150px;
+        margin-top: 10px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+}
+```
 
