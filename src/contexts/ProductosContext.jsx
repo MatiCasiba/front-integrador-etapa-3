@@ -11,7 +11,7 @@ const ProductosProvider = ({children}) => {
     const [productos, setProductos] = useState(null)
     const [productoAEditar, setProductoAEditar] = useState(null)
 
-    const urlMockapi = 'https://67d47c1dd2c7857431edce6d.mockapi.io/apis/v1/producto/'
+    //const urlMockapi = 'https://67d47c1dd2c7857431edce6d.mockapi.io/apis/v1/producto/'
     //const urlMockapi = import.meta.env.VITE_BACKEND_PRODUCTOS
 
     
@@ -21,7 +21,7 @@ const ProductosProvider = ({children}) => {
     
     const getAllProductos = async () => {
         try {
-            const prods = await peticionesHttp(urlMockapi, {})
+            const prods = await peticionesHttp(url, {})
             setProductos(prods)
 
         } catch (error) {
@@ -40,7 +40,7 @@ const ProductosProvider = ({children}) => {
                 body: JSON.stringify(productoNuevo)
             }
 
-            const prods = await peticionesHttp(urlMockapi, options)
+            const prods = await peticionesHttp(url, options)
             const nuevoEstadoProductos = [...productos, prods]
             setProductos(nuevoEstadoProductos)
 
@@ -56,7 +56,7 @@ const ProductosProvider = ({children}) => {
                 headers: {'content-type': 'application/json'},
                 body: JSON.stringify(productoAEditar)
             }
-            const urlActualizar = urlMockapi + productoAEditar.id
+            const urlActualizar = url + productoAEditar.id
             const productoEditado = await peticionesHttp(urlActualizar, options)
 
             const nuevoEstadoProductos = productos.map(prod=>prod.id === productoEditado.id ? productoEditado : prod)
@@ -70,7 +70,7 @@ const ProductosProvider = ({children}) => {
 
     const eliminarProductoContex = async (id) => {
         try {
-            const urlEliminacion = urlMockapi + id
+            const urlEliminacion = url + id
             const options = {
                 method: 'DELETE'
                 

@@ -8,7 +8,7 @@ const CarritoContext = createContext()
 // ! Armado del provider
 const CarritoProvider = ({ children }) => {
     const urlCarrito = import.meta.env.VITE_BACKEND_CARRITO
-    const urlCarritoMockapi = 'https://67d47c1dd2c7857431edce6d.mockapi.io/apis/v1/carro/'
+    //const urlCarritoMockapi = 'https://67d47c1dd2c7857431edce6d.mockapi.io/apis/v1/carro/'
 
     const [agregarAlCarrito, eliminarDelCarrito, limpiarCarrito, carrito] = useLocalStorage('carrito', [])
 
@@ -55,7 +55,7 @@ const CarritoProvider = ({ children }) => {
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(carrito)
             }
-            const carritoGuardado = await peticionesHttp(urlCarritoMockapi, options)
+            const carritoGuardado = await peticionesHttp(urlCarrito, options)
             console.log(carritoGuardado);
 
             limpiarCarrito()
