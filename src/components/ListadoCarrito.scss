@@ -1,0 +1,74 @@
+@import '../index.scss';
+
+table.tabla-carrito {
+    border-collapse: collapse;
+    width: 95%;
+    margin: 1rem auto;
+
+    th, td {
+        border: 1px solid $color-2;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: $color-3;
+    }
+
+    @media screen and (min-width: 992px) {
+        th{
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        th{
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+    }
+
+}
+.contenedor-precio{
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+
+.acciones-carrito{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    &__botones{
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.8rem;
+        margin-top: auto; 
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background-color: $color-1;
+        color: $color-3;
+        border-radius: 5px;
+    }
+
+    @media screen and (min-width: 992px) {
+        &{
+            gap: 30px;
+        }
+        &__botones{
+            font-size: 1rem;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        &__botones:hover{
+            box-shadow: 0 0 10px 2px $color-3;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
+        }
+    }
+}

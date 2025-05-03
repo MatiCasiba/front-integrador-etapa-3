@@ -1,0 +1,151 @@
+@import '../index.scss';
+
+textarea{
+    resize: vertical;
+    height: 80px;
+    max-height: 200px;
+}
+
+.formulario {
+    background-color: $color-4;
+    font-size: 1.2rem;
+    height: 100%;
+    padding: 40px;
+
+    &__titulo {
+        font-weight: 900;
+        color: $color-3;
+        text-align: center;
+        text-shadow: 2px 3px 1px $color-2;
+        border-radius: 20px;
+        padding: 5px;
+        margin: 15px 15px 45px 15px;
+    }
+
+    &__labels{
+        margin-top: 20px;
+        letter-spacing: 2px;
+        font-weight: 700;
+    }
+    
+    &__datos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__entrada-datos {
+        width: 70%;
+        padding: 4px;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        background-color: $color-4;
+    }
+
+    &__boton {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        background-color: $color-3;
+        cursor: pointer;
+    }
+
+    &__contenedor-map {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    iframe {
+        width: 100%;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        &{
+            font-size: 1.5rem;
+        }
+
+        &__labels{
+            font-weight: 600
+        }
+
+        &__entrada-datos {
+            width: 50%;
+        }
+
+        iframe{
+            width: 70%;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px; 
+        }
+
+        &__contenedor-datos {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        &__contenedor-map {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        &__entrada-datos {
+            width: 70%;
+            font-size: 1.1rem;
+        }
+
+        &__boton{
+            font-size: 1.1rem;
+        }
+        &__boton:hover{
+            box-shadow: 3px 5px 10px black;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 500px;
+            height: 580px;
+        }
+    }
+
+    @media screen and (min-width: 1400px){
+        &{
+            display: contents;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+
+        form{
+            max-width: 1300px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 0 auto;
+        }
+
+        &__entrada-datos{
+            padding: 8px;
+            font-size: 1.2rem;
+        }
+
+        iframe{
+            height: 600px;
+        }
+        
+    }
+}

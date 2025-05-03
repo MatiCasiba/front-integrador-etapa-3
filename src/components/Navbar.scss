@@ -1,0 +1,91 @@
+@import "../index.scss";
+
+/* NAVBAR */
+
+.nav-bar{
+    background: $color-3;
+    display: none;
+
+    &__nav-list{ /* .nav-bar__navlist */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        list-style-type: none;
+        background: $color-3;
+        font-size: 1rem;
+
+        @media screen and (min-width: 992px){
+            &{
+                flex-direction: row;
+                justify-content: center;
+                
+            }
+        }
+    }
+
+    &__nav-item{
+        text-align: center;
+    }
+
+    &__nav-link{
+        display: block;
+        background-color: $color-3;
+        padding: 1rem 2rem; /* 16px y 32px */
+        color: white;
+        text-decoration: none;
+        position: relative;
+
+        &:active {
+            color: black;
+        }
+
+        @media screen and (min-width: 992px) {
+            &{
+                font-size: 1rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+            }
+            &:active{
+                color: $color-1;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            &{
+                background: $color-3;
+                color: $color-4;
+                font-size: .9rem;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                border-radius: 100%;
+                margin-bottom: 10px;
+                background-color: $color-4;
+                transition: width 0.3s ease-in-out;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+    }
+
+    @media screen and (min-width: 992px){
+        &{
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 1200px){
+        & {
+            order: 2;
+            width: 100%;
+            background-color: $color-4;
+        }
+    }
+}

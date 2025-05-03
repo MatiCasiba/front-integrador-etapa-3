@@ -1,0 +1,89 @@
+@import '../../index.scss';
+
+.fila{
+    font-size: 1.1rem;
+    font-weight: 400;
+
+    &__nombre{
+        font-weight: 900;
+        letter-spacing: 3px;
+    }
+
+    &__precio{
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+    &__marca{
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+    }
+
+    &__descripcion{
+        font-weight: 200;
+    }
+
+    &__envio{
+        color: $color-3;
+        font-weight: bold;
+        letter-spacing: 5px;
+    }
+
+    &__botones{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 100%;
+    }
+
+    &__botonaccion{
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        background-color: $color-3;
+        cursor: pointer;
+        color: $color-4;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+    
+    img{
+        width: 8rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        &{
+            font-size: 1.2rem;
+        }
+         img{
+            width: 7.5rem;
+            margin: auto;
+         }
+    }
+
+    @media screen and (min-width: 1200px) {
+        &{
+            font-size: 1.4rem;
+        }
+
+        &__botones{
+            gap: 20px;
+        }
+        &__botonaccion{
+            font-size: 1.3rem;
+        }
+        &__botonaccion:hover{
+            box-shadow: 3px 5px 10px black;
+        }
+
+        img{
+            width: 9.5rem;
+            border-radius: 10px;
+        }
+    }
+
+    @media screen and (min-width: 1400px) {
+        &{
+            font-size: 1.5rem;
+        }
+    }
+}

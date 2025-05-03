@@ -1,0 +1,128 @@
+@import '../index.scss';
+
+.producto-detalle{
+    font-size: 1rem;
+    padding: 10px;
+    color: $color-1;
+
+    &__titulo-producto{
+        font-size: 1.8rem;
+    }
+
+    &__contenedor-image{
+        margin: 0 auto;
+        min-width: 316px;
+
+        img{
+            width: 320px;
+        }
+    }
+
+    &__contenedor-prod{
+        background-color: $color-4;
+        box-shadow: 0 1px 10px 2px black;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    &__contenedor-detalle{
+        h2{
+            color: $color-3;
+            font-size: 1rem;
+        }
+        h3{
+            font-size: 1.8rem;
+        }
+    }
+
+    &__marca{
+        font-size: 1.4rem;
+    }
+
+    &__precio{
+        font-size: 2rem;
+        letter-spacing: 2px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    &__descripcion{
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    @media screen and (min-width: 768px) {
+        
+        &__titulo-producto{
+            font-size: 2rem;
+        }
+
+        &__contenedor-image{
+            img{
+                width: 600px;
+                box-shadow: 0 0 10px 1px $color-1;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+        }
+
+        &__descripcion{
+            font-size: 1.3rem;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        &{
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        &__contenedor-prod{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            box-shadow: none;
+        }
+
+        &__contenedor-image{
+            img{
+                width: 530px;
+                align-items: start;
+                box-shadow: none;
+            }
+        }
+
+        &__contenedor-detalle{
+            width: 550px;
+            h2{
+                font-size: 2rem;
+                font-weight: 200;
+                letter-spacing: 3px;
+                text-align: center;
+            }
+            h3{
+                margin-top: 10px;
+                font-size: 2rem;
+            }
+        }
+        &__descripcion{
+            font-size: 1.1rem;
+        }
+
+        @media screen and (min-width: 1400px) {
+
+            
+            &__contenedor-detalle{
+                width: 400px;
+            }
+
+            &__descripcion{
+                font-size: 1.3rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@import '../index.scss';
+
+.tabla-items{
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    &__item{
+        font-size: 1.1rem;
+    }
+
+    &__foto-prod{
+        width: 100px;
+    }
+
+    &__item-boton{
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.8rem;
+        margin-top: auto; 
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background-color: $color-1;
+        color: $color-3;
+        border-radius: 5px;
+    }
+
+    @media screen and (min-width: 768px) {
+        &__item{
+            font-size: 1.15rem;
+        }
+
+        &__foto-prod{
+            width: 130px;
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        &__item{
+            font-size: 1.25rem;
+        }
+
+        &__foto-prod{
+            width: 180px;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        &__item{
+            font-size: 1.3rem;
+        }
+
+        &__foto-prod{
+            font-size: 200px;
+        }
+
+        &__item-boton:hover{
+            box-shadow: 0 0 10px 2px $color-3;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
+        }
+    }
+
+}

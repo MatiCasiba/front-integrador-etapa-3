@@ -1,0 +1,246 @@
+@import "../index.scss";
+
+/* SEARCH BAR */
+
+.search-bar{
+    display: flex;
+    background: $color-3;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 3.7rem;
+    margin: 0 auto;
+    
+    &__logo-container{
+        width: 5.75rem;
+        height: 3.5rem;
+
+        @media screen and (min-width: 992px){
+            &{
+                width: 5rem;
+                height: 4rem;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    &__logo-img{
+        opacity: 0;
+
+        @media screen and (min-width: 576px) {
+            &{
+                opacity: 1;
+                width: 60px;
+                object-fit: contain;
+                
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+            &{
+               width: 100px;
+               position: relative; 
+            }
+        }
+    }
+
+    &__form-container{
+        
+        padding: 1rem;
+        display: flex;
+        flex-basis: 1000px;
+        justify-content: center;
+
+        @media screen and (min-width: 992px){
+            &{
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__form-label{
+        background-color: none;
+        
+    }
+    &__logo-search{
+        opacity: 0;
+        min-width: 20px;
+        min-height: 20px;
+        max-width: 30px; 
+        max-height: 30px;
+        object-fit: contain;
+        flex-shrink: 0;    
+
+        @media screen and (min-width: 576px) {
+            opacity: 1;
+        }
+        
+        
+        @media screen and (min-width: 992px){
+            &{
+                max-height: 35px;
+            }
+        }
+        
+    }
+
+    &__form-search{
+        background-color: $color-4;
+        margin-left:10px;
+        padding-left: 10px;
+        border-radius: 10px;
+        width: 100px;
+
+        @media screen and (min-width: 576px) {
+            &{
+                width: 180px;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            & {
+                width: 70%;
+            }
+        }
+
+        @media screen and (min-width: 992px){
+            &{
+                width: 30%;
+                margin-left: 20px;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            & {
+                width: 50%;
+            }
+        }
+    }
+
+    &__form-submit {
+        background-color: $color-4;
+        margin-left: 2px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        padding: 5px;
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        cursor: pointer;
+    
+        @media screen and (min-width: 1200px) {
+            &:hover {
+                background-color: $color-3;
+                transform: scale(1.1); // Hace que crezca un poco al pasar el mouse
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); // Agrega un efecto de sombra sutil
+            }
+        }
+    }
+
+    &__carrito-container{
+        flex: 0 0 3rem;
+        margin: auto;
+        position: relative;
+
+        @media screen and (min-width: 992px){
+            &{
+                flex: 0 0 5rem;
+                margin: auto;
+                background: none;
+            }
+        }
+    }
+    &__cart-link{
+        position: relative;
+        display: inline-block;
+    }
+
+    &__cart-logo{
+        min-width: 20px;
+        min-height: 20px;
+        max-width: 30px; 
+        max-height: 30px;
+        object-fit: contain;
+        flex-shrink: 0;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover{
+            transform: scale(1.2);
+        }
+
+        @media screen and (min-width: 768px){
+            max-height: 35px;
+        }
+        
+    }
+
+    &__cart-count{
+        position: absolute;
+        top: -10px;
+        right: -15px;
+        background-color: $color-2;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    @media screen and (min-width: 1200px) {
+        & {
+            order: 1;
+            width: 100%;
+        }
+    }
+}
+
+/* MENU TOOGLE */
+
+.menu-toogle{
+    display: block;
+    flex: 0 0 3rem;
+    position: relative;
+    cursor: pointer;
+    height: 50px;
+
+    &__label {
+        display: block;
+        height: 100%;
+    }
+
+    &__top-bread,
+    &__meat,
+    &__bottom-bread{
+        display: block;
+        background-color: #333;
+        height: .2rem;
+        position: absolute;
+        left: .5rem;
+        right: .5rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &__top-bread{
+        top: .8rem;
+    }
+
+    &__meat{
+        top: 50%;
+        margin-top: -.1rem;
+    }
+
+    &__bottom-bread{
+        bottom: .8rem;
+    }
+
+    @media screen and (min-width: 992px) {
+        & { /* menu-toogle */
+            display: none;
+        }
+    }
+
+}

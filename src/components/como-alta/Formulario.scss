@@ -1,0 +1,138 @@
+@import "../../index.scss"; 
+
+.formulario-alta{
+    background-color: $color-4;
+
+    &__subtitulo{
+        color: $color-3;
+        font-weight: 700;
+        font-size: 1.4rem;
+        text-shadow: 0 0 2px $color-2;
+        text-align: center;
+        padding: 10px;
+    }
+
+    &__contenedor-datos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__datos-prod{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    &__labels-prod{
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: $color-2;
+        letter-spacing: 3px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    &__inputs-datos{
+        font-size: 1.3rem;
+        padding: 5px;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-radius: 10px;
+        background-color: $color-4;
+    }
+
+    &__checkbox{
+        margin-top: 40px;
+    }
+    &__check{
+        margin-left: 10px;
+    }
+
+    &__botones{
+        display: flex;
+        gap: 50px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    &__boton{
+        text-align: center;
+        font-weight: 800;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        background-color: $color-3;
+        cursor: pointer;
+    }
+
+    @media screen and (min-width: 768px) {
+        &__subtitulo{
+            font-size: 1.7rem;
+        }
+
+        &__labels-prod{
+            font-size: 1.3rem;
+        }
+
+        &__inputs-datos{
+            font-size: 1.4rem;
+            padding: 8px;
+        }
+
+        &__boton{
+            font-size: 1.1rem;
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        &__subtitulo{
+            font-size: 1.9rem;
+        }
+
+        &__labels-prod{
+            font-size: 1.5rem;
+        }
+        &__inputs-prod{
+            font-size: 1.6rem;
+        }
+        
+        &__boton{
+            font-size: 1.2rem;
+            border: 2px solid $color-1;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        &__subtitulo{
+            font-size: 2rem;
+        }
+
+        &__labels-prod{
+            font-size: 1.7rem;
+        }
+        &__inputs-prod{
+            font-size: 1.9rem;
+        }
+
+        &__boton{
+            font-size: 1.3rem;
+        }
+        &__boton:hover{
+            box-shadow: 0 0  10px 3px $color-1;
+        }
+    }
+
+    @media screen and (min-width: 1400px) {
+        &__labels-prod{
+            font-size: 1.8rem;
+        }
+        &__inputs-prod{
+            font-size: 2rem;
+        }
+        
+    }
+}

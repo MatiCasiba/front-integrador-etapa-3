@@ -1,0 +1,57 @@
+@import "../index.scss";
+
+/* HEADER */
+
+.main-header{
+    display: flex;
+    flex-direction: column-reverse;
+    background: $color-3;
+
+    @media screen and (min-width: 992px){
+        &{
+            flex-direction: column;
+        }
+    }
+
+    
+    @media screen and (min-width: 1200px){
+        & {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+@keyframes dropdown{
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#menu {
+    display: none;
+
+    &:checked + .nav-bar {
+        display: block;
+        animation: dropdown 0.5s ease-in-out;
+    }
+
+    &:checked ~ .search-bar .menu-toogle {
+        .menu-toogle__top-bread {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toogle__meat {
+            opacity: 0;
+        }
+
+        .menu-toogle__bottom-bread {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+    }
+}

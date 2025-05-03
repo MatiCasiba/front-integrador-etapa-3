@@ -1,0 +1,43 @@
+.slider {
+    background-image: url(../../images-slider/zildjian-chroma-pack-lifstyle.webp);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    animation: efecto linear infinite 15s;
+
+    @media screen and (min-width: 768px) {
+        &{
+            height: 300px;
+        }
+    }
+    
+    @media screen and (min-width: 992px){
+        &{
+            height: 430px;
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        &{
+            height: 450px;
+            max-width: 1250px;
+            margin:  0 auto;
+        }
+    }
+}
+
+@keyframes efecto{
+    20%{
+        background-image: url(../../images-slider/auriculares-zildjian.webp);
+    }
+    40%{
+        background-image: url(../../images-slider/dark_cymbal_pack_1.webp);
+    }
+    60%{
+        background-image: url(../../images-slider/ALCHEM-E_Gold-EX_Front-Side.webp);
+    }
+    80%{
+        background-image: url(../../images-slider/l80_low_volume_cymbal_pack.webp);
+    }
+}
