@@ -6,8 +6,8 @@ import './ProductoDetalle.scss'
 const ProductoDetalle = () => {
 
   const {id} = useParams()
-  const placeHolderImage = 'http://localhost:8080/uploads/elementor-placeholder-image-1.webp'
-  const [productoDetalle, setProductoDetalle] = useState(placeHolderImage)
+  
+  const [productoDetalle, setProductoDetalle] = useState(null)
   //const urlMockapi = 'https://67d47c1dd2c7857431edce6d.mockapi.io/apis/v1/producto/'
   const url = import.meta.env.VITE_BACKEND_PRODUCTOS
 
@@ -41,7 +41,7 @@ const ProductoDetalle = () => {
                     <div className="producto-detalle__contenedor-prod">
                         
                         <div className="producto-detalle__contenedor-image">
-                            <img src={`/${productoDetalle.foto}`} alt={productoDetalle.foto} />   
+                            <img src={`${productoDetalle.foto}`} alt={productoDetalle.foto} />   
                         </div>
 
                         <div className="producto-detalle__contenedor-info">
