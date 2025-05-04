@@ -133,3 +133,5 @@ Se enucentra en las carpetas /components/como-alta/ el archivo scss para la esti
 }
 ```
 
+## Solución en el ProductoDetalle.jsx
+
