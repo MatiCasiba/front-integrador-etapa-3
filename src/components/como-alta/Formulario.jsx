@@ -43,7 +43,7 @@ const Formulario = () => {
         console.log(productoNuevoConImagen);
         crearProductoContext(productoNuevoConImagen)
     } else {
-        const productoNuevoConImagen = {...form, ...foto}
+        const productoNuevoConImagen = {...form, foto:srcImagenBack}
         actualizarProductoContext(productoNuevoConImagen)
     }
 
