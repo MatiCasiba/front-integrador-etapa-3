@@ -1,27 +1,45 @@
 .drop-area {
-    border: 2px dashed #ccc;
+    border: 2px solid #eb5e28;
+    box-shadow: 0 0 15px 3px #eb5e28;
     border-radius: 20px;
     width: 300px;
     margin: 25px 0;
     padding: 20px;
     & p {
         margin-bottom: 30px;
+        text-align: center;
+        letter-spacing: 3px;
+        font-weight: 800;
     }
     &-button {
         display: inline-block;
         padding: 10px;
-        background: #ccc;
+        background: #eb5e28;
         cursor: pointer;
         border-radius: 5px;
-        border-radius: 1px solid #ccc;
+        border: 2px solid #403d39;
+        font-weight: 600;
+        
     }
     & #lbl-foto {
         display: none;
     }
     &-image img {
-        width: 150px;
+        width: 250px;
         margin-top: 10px;
         margin-right: 10px;
         vertical-align: middle;
+    }
+
+    @media screen and (min-width: 1200px) {
+        & p{
+            font-size: 1.2rem;
+        }
+        &-button{
+            font-size: 1.2rem;
+        }
+        &-button:hover{
+            box-shadow: 0 0 10px 3px #252422;
+        }
     }
 }

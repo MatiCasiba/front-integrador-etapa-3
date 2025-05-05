@@ -83,8 +83,7 @@ const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
   return (
     <div className='drop-area' onDrop={handleDrop}>
       <p>
-        Subir imagen al servidor con <b>File Dialog</b> o con
-        <b> drag and drop</b> dentro del area punteada.
+        Subir imagen 
       </p>
       <input type="file" id="lbl-foto" accept="image/*" onChange={handleChange} />
       <label className="drop-area-button" htmlFor="lbl-foto">
@@ -105,33 +104,60 @@ Se enucentra en las carpetas /components/como-alta/ el archivo scss para la esti
 
 ```sh
 .drop-area {
-    border: 2px dashed #ccc;
+    border: 2px solid #eb5e28;
+    box-shadow: 0 0 15px 3px #eb5e28;
     border-radius: 20px;
     width: 300px;
     margin: 25px 0;
     padding: 20px;
     & p {
         margin-bottom: 30px;
+        text-align: center;
+        letter-spacing: 3px;
+        font-weight: 800;
     }
     &-button {
         display: inline-block;
         padding: 10px;
-        background: #ccc;
+        background: #eb5e28;
         cursor: pointer;
         border-radius: 5px;
-        border-radius: 1px solid #ccc;
+        border: 2px solid #403d39;
+        font-weight: 600;
+        
     }
     & #lbl-foto {
         display: none;
     }
     &-image img {
-        width: 150px;
+        width: 250px;
         margin-top: 10px;
         margin-right: 10px;
         vertical-align: middle;
     }
+
+    @media screen and (min-width: 1200px) { # cuando la pantalla sea mayor o igual a 1200px
+        # aumento el tamaño de letra y el botón tendrá una sombra cuando el usuario se pare sobre el botón de File Dialog
+        & p{
+            font-size: 1.2rem;
+        }
+        &-button{
+            font-size: 1.2rem;
+        }
+        &-button:hover{
+            box-shadow: 0 0 10px 3px #252422;
+        }
+    }
 }
 ```
+Le agregué color al borde del rtecuadro, al igual que una sombra de color naranja, para que de un aspecto de iluminación
 
-## Solución en el ProductoDetalle.jsx
+## Imagen del placeholder
+Estaba surgiendo un problema con la imagen del placeholder dentro del DragDrop, cuando la página se lanzaba en línea la imagen desaparece, entonces como esta imagen está subida al repo del git, agarré la dirección de esa imagen y se la coloqué en el placeHolder que se encuentra en el componente Formulario.jsx
+```js
+const placeHolderImage = 'https://raw.githubusercontent.com/MatiCasiba/inte-etapa-3/refs/heads/main/public/uploads/elementor-placeholder-image-1.webp'
+```
+
+
+
 

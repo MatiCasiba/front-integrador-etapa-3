@@ -31,7 +31,7 @@ const Formulario = () => {
 
   //! Estados nuevos para la etapa 3 (subir la imagen)
   /* Estados para gestionar el drag and drop */
-  const placeHolderImage = 'http://localhost:8080/uploads/elementor-placeholder-image-1.webp'
+  const placeHolderImage = 'https://raw.githubusercontent.com/MatiCasiba/inte-etapa-3/refs/heads/main/public/uploads/elementor-placeholder-image-1.webp'
   const [foto, setFoto] = useState(placeHolderImage)
   const [srcImagenBack, setSrcImagenBack] = useState(placeHolderImage)
 
