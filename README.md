@@ -1,6 +1,6 @@
 * Nombre: Matias Casiba
-* Link github repo: https://github.com/MatiCasiba/drumstore-etapa2
-* Link Netlify: https://drumstore-maticasiba.netlify.app/
+* Link github repo: https://github.com/MatiCasiba/front-integrador-etapa-3
+* Link Netlify: https://drumstore-integrador-etapa-3.netlify.app/
 
 # Integrador etapa 3
 Ahora en la etapa 3 voy a contectar el front con el back para esta última etapa, el repo del back complementar: https://github.com/MatiCasiba/inte-etapa-3
