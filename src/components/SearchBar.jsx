@@ -2,10 +2,21 @@ import { Link } from 'react-router'
 import './SearchBar.scss'
 import { useContext } from 'react'
 import CarritoContext from '../contexts/CarritoContex'
+import SearchContext  from '../contexts/SearchContext'
 
 const SearchBar = () => {
 
-    const {contarProductosCarritoContext} = useContext(CarritoContext)
+    const { contarProductosCarritoContext } = useContext(CarritoContext)
+    const { searchTerm, setSearchTerm } = useContext(SearchContext)
+
+    //manejo el cambio en el input
+    const handleChange = (e) => {
+        setSearchTerm(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
 
     return (
         <>
@@ -14,11 +25,11 @@ const SearchBar = () => {
                     <img className="search-bar__logo-img" src="/logo/ds-logo-sf.png" alt="logo ds" />
                 </div>
                 {/* <button className="theme-toggle">⚫</button> */}
-                <form action="#" className="search-bar__form-container">
+                <form onSubmit={handleSubmit} className="search-bar__form-container">
                     <label htmlFor="busqueda" className="search-bar__form-label">
-                        <img className="search-bar__logo-search" src="/logo/logo-search.png" alt="logo del bucador" />
+                        <img className="search-bar__logo-search" src="/logo/logo-search.png" alt="logo del buscador" />
                     </label>
-                    <input type="search" id="busqueda" className="search-bar__form-search" />
+                    <input type="search" id="busqueda" className="search-bar__form-search" value={searchTerm} onChange={handleChange} />
                     <button type="submit" className="search-bar__form-submit">Buscar</button>
                 </form>
 

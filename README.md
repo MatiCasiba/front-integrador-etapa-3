@@ -202,3 +202,68 @@ createRoot(document.getElementById('root')).render(
 )
 
 ```
+
+### Doy uso al SearchContext
+Hago un ajuste dentro del SearchBar.jsx con la finalidad de usar SearchContext, para que el texto que escruba el usuario, se guarde en el contexto y lo puedan leer otros componentes.
+```js
+import { Link } from 'react-router'
+import './SearchBar.scss'
+import { useContext } from 'react'
+import CarritoContext from '../contexts/CarritoContex'
+import SearchContext  from '../contexts/SearchContext' //imporot el SearchContext
+
+const SearchBar = () => {
+
+    const { contarProductosCarritoContext } = useContext(CarritoContext)
+    const { searchTerm, setSearchTerm } = useContext(SearchContext) //uso el contexto del buscador
+
+    //manejo el cambio en el input
+    const handleChange = (e) => {
+        setSearchTerm(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        //lo hago para poder redirigir a otra ruta, por ahora soloe vita recargar
+    }
+
+    return (
+        <>
+            <div className="search-bar">
+                <div className="search-bar__logo-container">
+                    <img className="search-bar__logo-img" src="/logo/ds-logo-sf.png" alt="logo ds" />
+                </div>
+
+                <form onSubmit={handleSubmit} className="search-bar__form-container">
+                    <label htmlFor="busqueda" className="search-bar__form-label">
+                        <img className="search-bar__logo-search" src="/logo/logo-search.png" alt="logo del buscador" />
+                    </label>
+                    <input type="search" id="busqueda" className="search-bar__form-search" value={searchTerm} onChange={handleChange} /> // atado al estado global
+                    <button type="submit" className="search-bar__form-submit">Buscar</button>
+                </form>
+
+                <div className="search-bar__carrito-container">
+                    <Link to="/carrito" className='search-bar__cart-link'>
+                    
+                        <img className="search-bar__cart-logo" src="/logo/cart-logo.png" alt="logo de carro" />
+                        {contarProductosCarritoContext > 0 && (
+                            <span className='search-bar__cart-count'>{contarProductosCarritoContext}</span>
+                        )}
+                    
+                    </Link>
+                </div>
+
+                <div className="menu-toogle">
+                    <label htmlFor="menu" className="menu-toogle__label">
+                        <span className="menu-toogle__top-bread"></span>
+                        <span className="menu-toogle__meat"></span>
+                        <span className="menu-toogle__bottom-bread"></span>
+                    </label>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default SearchBar
+```
