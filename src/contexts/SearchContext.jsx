@@ -1,8 +1,14 @@
+import { createContext, useState } from "react"
 
+const SearchContext = createContext();
 
-const SearchContext = () => {
+ export const SearchProvider = ({children}) => {
+
+  const [searchTerm, setSearchTerm] = useState("")
   return (
-    <div>SearchContext</div>
+    <SearchContext.Provider value={{searchTerm, setSearchTerm}}>
+      {children}
+    </SearchContext.Provider>
   )
 }
 

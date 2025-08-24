@@ -158,6 +158,47 @@ Estaba surgiendo un problema con la imagen del placeholder dentro del DragDrop, 
 const placeHolderImage = 'https://raw.githubusercontent.com/MatiCasiba/inte-etapa-3/refs/heads/main/public/uploads/elementor-placeholder-image-1.webp'
 ```
 
+## SearchContext
 
+Voy a crear un nuevo contexto para la barra buscadora de la página, esto con el fin de que cuando el usuario escriba lo que quiere, en la página se va filtrando los productos relacionado con su búsqueda.
 
+```js
+import { createContext, useState } from "react"
 
+const SearchContext = createContext();
+
+ export const SearchProvider = ({children}) => {
+
+  const [searchTerm, setSearchTerm] = useState("")
+  return (
+    <SearchContext.Provider value={{searchTerm, setSearchTerm}}>
+      {children}
+    </SearchContext.Provider>
+  )
+}
+
+export default SearchContext
+```
+* Creo un SearchContext para manejar el estado globbal de búsqueda (searchTerm).
+* Con setSearchTerm lo acutalizo desde el SearchBar
+* Desde Inicio (donde se renderizan los productos) puede leer ese valor y filtrar la lista
+
+### SearchProvider
+Ahora voy a importar el SearchContext en main.jsx, esto para dar uso del SearchProvider:
+```js
+import { SearchProvider } from './contexts/SearchContext.jsx' // lo importo
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <CarritoProvider>
+      <ProductosProvider>
+        <SearchProvider> /* agrego el provider */
+          <App />
+        </SearchProvider>
+      </ProductosProvider>
+    </CarritoProvider>
+
+  </StrictMode>,
+)
+
+```
