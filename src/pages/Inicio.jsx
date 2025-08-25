@@ -2,6 +2,7 @@ import './Inicio.scss'
 import Card from "../components/Card"
 import { useContext, useEffect, useState } from 'react'
 import ProductosContext from '../contexts/ProductosContext'
+import SearchContext from '../contexts/SearchContext'
 import useTitulo from '../hooks/useTitulo'
 import Slider from '../components/Slider'
 import Spinner from '../components/Spinner'
@@ -10,7 +11,7 @@ const Inicio = () => {
 
   const {productos} = useContext(ProductosContext)
   useTitulo('Inicio')
-
+  const {searchTerm} = useContext(SearchContext)
   const [cargando, setCargando] = useState(true)
 
   useEffect(() => {
@@ -18,6 +19,10 @@ const Inicio = () => {
       setTimeout(() => setCargando(false), 1000); // Simula una carga de 1 segundo
     }
   }, [productos]);
+
+  const productosFiltrados = productos.filter((producto) => 
+    producto.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   return (
     <>
@@ -34,9 +39,13 @@ const Inicio = () => {
           </section> 
 
           <section className="cards-container" id="container-productos">
-            {productos && productos.map((producto) => (
-              <Card producto={producto} key={producto.id} />
-            ))}
+            {productosFiltrados.length > 0 ? (
+              productosFiltrados.map((producto) => (
+                <Card producto={producto} key={producto.id} />
+              ))
+            ) : (
+              <p>No se encontraron productos.</p>
+            )}
           </section>
         </main>
       )}

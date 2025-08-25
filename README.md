@@ -267,3 +267,75 @@ const SearchBar = () => {
 
 export default SearchBar
 ```
+
+## Uso del searchTerm en Inicio.jsx
+Dentro de Inicio.jsx voy a aplicar searchTerm para que solo muestre lo que el usuario escribe en la barra. Voy a importar el SearchContext dentro de este:
+```js
+import './Inicio.scss'
+import Card from "../components/Card"
+import { useContext, useEffect, useState } from 'react'
+import ProductosContext from '../contexts/ProductosContext'
+import SearchContext from '../contexts/SearchContext'
+import useTitulo from '../hooks/useTitulo'
+import Slider from '../components/Slider'
+import Spinner from '../components/Spinner'
+
+const Inicio = () => {
+
+  const {productos} = useContext(ProductosContext)
+  useTitulo('Inicio')
+
+  const {searchTerm} = useContext(SearchContext) // importo el searchTerm
+
+  const [cargando, setCargando] = useState(true)
+
+  useEffect(() => {
+    ...
+  }, [productos]);
+
+  // Filtro productos según lo que escriba el usuario
+  const productosFiltrados = productos.filter((producto) => 
+    producto.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
+  return (
+    <>
+      {cargando ? (
+        <Spinner />
+      ) : (
+        <main>
+          <Slider />
+          <section className="section-cards">
+            ...
+          </section> 
+
+          <section className="cards-container" id="container-productos">
+            {productosFiltrados.length > 0 ? (
+              productosFiltrados.map((producto) => (
+                <Card producto={producto} key={producto.id} />
+              ))
+            ) : (
+              <p>No se encontraron productos.</p>
+            )}
+          </section>
+        </main>
+      )}
+    </>
+  )
+}
+
+export default Inicio
+```
+Entonces cuando el usuario escriba en el SearchBar, se va a actualizar el searchTerm del contexto, Inicio.jsx toma ese valor y filtra los productos. Si este no encuentra nada, se mostrará el mensaje "No se encontraron productos"
+
+### NOTA
+Cuando queria implementar esto, me saltaba un error y no me cargaba la página, al hacer uso del filter. El error era Uncaught TypeError: Cannot read properties of null (reading 'filter') at Inicio (Inicio.jsx:23:40). Para solucionarlo tuve que hacer un pequeño ajuste dentro de ProductosContext.jsx:
+```js
+const [productos, setProductos] = useState([]) // antes estaba en null, ahora lo cambio por un array vacio, si comenzaba con null, no podía hacer .filter
+```
+Entonces al hacer este cambio, me evito de tener que validar siempre, porque otra cosa que podía hacer era ajustarlo en const productosFiltrados de Inicio.jsx:
+```js
+const productosFiltrados = (productos ?? []).filter((producto) => 
+  producto.nombre?.toLowerCase().includes(searchTerm.toLowerCase())
+)
+```
