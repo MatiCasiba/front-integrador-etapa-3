@@ -20,9 +20,14 @@ const Inicio = () => {
     }
   }, [productos]);
 
-  const productosFiltrados = productos.filter((producto) => 
-    producto.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const productosFiltrados = productos.filter((producto) => {
+    const term = searchTerm.toLowerCase();
+    return (
+      producto.nombre?.toLowerCase().includes(term) ||
+      producto.categoria?.toLowerCase().includes(term) ||
+      producto.marca?.toLowerCase().includes(term)
+    );
+  });
 
   return (
     <>

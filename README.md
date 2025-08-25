@@ -339,3 +339,19 @@ const productosFiltrados = (productos ?? []).filter((producto) =>
   producto.nombre?.toLowerCase().includes(searchTerm.toLowerCase())
 )
 ```
+
+## Ajuste del buscador
+Ahora la página filtra la busqueda del usuario por nombre, marca y categoría. Si bien antes cuando el usuario cuando escribía en la barra, se filtraba pocos productos respecto a su busqueda, ahora con este filtro, muestra más productos seleccionados:
+```js
+//Inicio.jsx
+
+const productosFiltrados = productos.filter((producto) => {
+    const term = searchTerm.toLowerCase();
+    return (
+      producto.nombre?.toLowerCase().includes(term) ||
+      producto.categoria?.toLowerCase().includes(term) ||
+      producto.marca?.toLowerCase().includes(term)
+    );
+  });
+```
+El || hace que coincida si alguna de las tres condiciones es verdadera.
