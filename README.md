@@ -346,7 +346,8 @@ Ahora la página filtra la busqueda del usuario por nombre, marca y categoría. 
 //Inicio.jsx
 
 const productosFiltrados = productos.filter((producto) => {
-    const term = searchTerm.toLowerCase();
+    const term = searchTerm.trim().toLowerCase();
+    if(!term) return true; // si está vacío después del trim, muestra todo
     return (
       producto.nombre?.toLowerCase().includes(term) ||
       producto.categoria?.toLowerCase().includes(term) ||
@@ -354,4 +355,6 @@ const productosFiltrados = productos.filter((producto) => {
     );
   });
 ```
-El || hace que coincida si alguna de las tres condiciones es verdadera.
+* El || hace que coincida si alguna de las tres condiciones es verdadera.
+* searchTerm.trim(): ekimina los espacios adelante y atrás
+* Le agrego la condiciónn if(!term) return true, esto hace más claro y seguro el comportamiento, si después de hacer trim queda vacío, muestro todos los productos

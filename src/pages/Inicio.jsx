@@ -21,7 +21,8 @@ const Inicio = () => {
   }, [productos]);
 
   const productosFiltrados = productos.filter((producto) => {
-    const term = searchTerm.toLowerCase();
+    const term = searchTerm.trim().toLowerCase();
+    if(!term) return true;
     return (
       producto.nombre?.toLowerCase().includes(term) ||
       producto.categoria?.toLowerCase().includes(term) ||
